@@ -1,0 +1,36 @@
+{
+    "project": {"name":"Project Name"},
+    "fields":[
+        {
+            "id":1,
+            "name":"SWIFTkode",
+            "type":"MASK",
+            "synonyms":[
+                {   "id":1,
+                    "name":"S.W.I.F.T"
+                },
+                {   "id":2,
+                    "name":"SWIFT Code"
+                }
+            ]
+        },
+        {
+            "id":2,
+            "name":"Remitting Bank Name",
+            "type":"ORG",
+            "synonyms":[
+            ]
+        },
+        {
+            "id":3,
+            "name":"Drawer",
+            "type":"ORG",
+            "synonyms":[
+                {   
+                    "id":3,
+                    "name":"DRAWER"
+                }
+            ]
+        }
+    ]
+}

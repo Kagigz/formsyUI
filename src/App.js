@@ -1,25 +1,22 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Navbar from './components/general/navbar'
+import ProjectCreate from './components/project/projectCreate'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-2" id="navbar">
+            <Navbar/>
+          </div>
+          <div className="col-10">
+            <ProjectCreate title="Edit Project"/>
+
+          </div>
+        </div>
       </div>
     );
   }

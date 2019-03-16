@@ -1,0 +1,161 @@
+$body-bg: #f2f2f2;
+$primary: #0067b1;
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+#navbar{
+    text-align: center;
+    background-color:#2b2b2b;
+    color:white;
+    margin:0;
+    padding:0;
+    height:100vh;
+
+    #title{
+        padding:25px 0px;
+        background-color:$primary;
+    }
+    
+}
+
+.form-control{
+    padding:2px;
+}
+
+.content{
+    margin-top:30px;
+}
+
+.projectDetails{
+    margin-top:50px;
+    font-size:2em;
+}
+
+.projectName{
+    margin-left:10px;
+    color:$primary;
+    font-weight: 500;
+    input{
+        color:$primary;  
+        display:inline-block;
+        max-width:50%;
+        font-size:1em;
+        font-weight: 500;
+    }
+}
+
+.adminActions{
+    margin-bottom:50px;
+}
+
+.fieldList{
+    margin-top:100px;
+}
+
+.fieldsLabels{
+    text-align: center;
+    margin-bottom:15px;
+
+    h4{
+        font-size: 1em;
+    }
+}
+
+.field{
+    background-color: white;
+    margin-bottom: 20px;
+    padding:0px;
+    box-shadow: 0px 2px 10px 0px #d7d7d7;
+    height:auto;
+
+    path { 
+        fill: $primary; 
+    }
+
+    .idField{
+        background-color:$primary;
+        color:white;
+        height:100%;
+    }
+
+    .addSynonymBtn{
+        margin-left:5px;
+    }
+
+    .deleteField{
+        text-align: right;
+        cursor:pointer;
+    }
+}
+
+.form-group{
+    margin-bottom:10px;
+    margin-top:10px;
+}
+
+.nameField{
+
+    color:$primary;
+    padding-right:10px;
+
+    input{
+        color:$primary;
+        max-width: 100%;
+    }
+}
+
+.synonymsField{
+    white-space: nowrap;
+
+    .scrollbar
+    {
+        float: left;
+        padding-top:5px;
+        height:40px;
+        background: #F5F5F5;
+        overflow-x: scroll;
+        margin: 10px 0px;
+        width:100%;
+    }
+
+    .scrollbar::-webkit-scrollbar-track
+    {
+        -webkit-box-shadow: inset 0 0 6px #d7d7d7;
+        border-radius: 10px;
+        background-color:$white;
+    }
+
+    .scrollbar::-webkit-scrollbar
+    {
+        width: 12px;
+        background-color: $body-bg;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb
+    {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px #d7d7d7;
+        background-color: $primary;
+    }
+}
+
+.synonym{
+    background-color:$primary;
+    color:white;
+    border-radius:10px;
+    padding:2px 7px;
+    margin: 0px 5px;
+    font-size:12px;
+
+    .removeBtn{
+        margin-left:5px;
+        font-weight:600;
+        cursor:pointer;
+    }
+
+    input{
+        max-width:30%;
+        font-size:12px;
+        padding: 0px 2px;
+    }
+}
