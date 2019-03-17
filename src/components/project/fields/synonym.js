@@ -35,7 +35,7 @@ class Synonym extends React.Component{
     handleBlur = (event) => {
         event.stopPropagation();
         console.log("Edit synonym finish");
-        this.props.finishAddSynonym();
+        this.props.finishAddSynonym(this);
         this.setState({edit:false});
         if(this.state.value == ""){
             // Delete synonym

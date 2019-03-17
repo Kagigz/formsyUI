@@ -6,7 +6,7 @@ class Admin extends React.Component{
     render(){
        return (
            <div className="adminActions">
-            <button type="button" className="btn btn-primary" onClick={this.props.addField}>Add Field</button>
+            <button type="button" className="btn btn-lg btn-primary" onClick={this.props.addField}>Add Field</button>
             </div>
         );
     }

@@ -16,20 +16,23 @@ class Field extends React.Component{
         };
       }
 
-      clickAddSynonym = () => {  
-        console.log("Click Add Synonym");
-        this.setState({addingSynonym:true});
-      };
-
-      finishAddSynonym = () => {
+      finishAddSynonym = (synonym) => {
         console.log("Finish Add Synonym");
+        let index = this.state.synonyms.indexOf(synonym.props.synonym);
+        this.state.synonyms[index].name = synonym.state.value;
+        this.setState({synonym:this.state.synonyms});
         this.setState({addingSynonym:false});
       }
 
-      addSynonym = (synonym) => {
+      addSynonym = () => {
         console.log("Add Synonym");
-        this.state.synonyms.push(synonym);
-        this.setState({synonyms:this.state.synonyms});
+        this.setState({addingSynonym:true});
+        let allSynonyms = [...this.state.synonyms];
+        allSynonyms.push({
+          id: Date.now(),
+          name: ""
+        });
+        this.setState({synonyms:allSynonyms});
       }
 
     deleteSynonym = (synonym) => {
@@ -42,26 +45,13 @@ class Field extends React.Component{
     
     render(){
 
-        /*if(this.state.addingSynonym){
-            let allButOneSynonyms = this.state.synonyms;
-            allButOneSynonyms.pop();
-            var synonymsList = allButOneSynonyms
-            .map(s => <Synonym key={s.id} synonym={s} addSynonym={this.addSynonym} deleteSynonym={this.deleteSynonym} finishAddSynonym={this.finishAddSynonym}/>); 
-            let newSynonym = this.state.synonyms.slice(-1);
-            synonymsList.push(<Synonym key={newSynonym.id} synonym={newSynonym} addSynonym={this.addSynonym} edit={true} deleteSynonym={this.deleteSynonym} finishAddSynonym={this.finishAddSynonym}/>)
-            //let newSynonym = {id: Date.now(),name: ""};
-            //synonymsList.push(<Synonym key={newSynonym.id} synonym={newSynonym} addSynonym={this.addSynonym} edit={true} deleteSynonym={this.deleteSynonym} finishAddSynonym={this.finishAddSynonym}/>)
-        }   
-        else{
-            var synonymsList = this.state.synonyms
-            .map(s => <Synonym key={s.id} synonym={s} addSynonym={this.addSynonym} deleteSynonym={this.deleteSynonym} finishAddSynonym={this.finishAddSynonym}/>); 
-        }*/
         const synonymsList = this.state.synonyms
         .map(s => <Synonym key={s.id} synonym={s} addSynonym={this.addSynonym} deleteSynonym={this.deleteSynonym} finishAddSynonym={this.finishAddSynonym}/>); 
+
         if(this.state.addingSynonym){
-            let newSynonym = {id: Date.now(),name: ""};
-            synonymsList.push(<Synonym key={newSynonym.id} synonym={newSynonym} addSynonym={this.addSynonym} edit={true} deleteSynonym={this.deleteSynonym} finishAddSynonym={this.finishAddSynonym}/>)
-        
+            const newSynonym = React.cloneElement(synonymsList[synonymsList.length-1], {edit: true});
+            synonymsList.pop();
+            synonymsList.push(newSynonym);
         }
 
         return (
@@ -73,7 +63,7 @@ class Field extends React.Component{
                             <TypeField type={this.state.type}/>
                         </div>
                         <div className="col-4 synonymsField">
-                            <div className="scrollbar" onDoubleClick={this.clickAddSynonym}>
+                            <div className="scrollbar" onDoubleClick={this.addSynonym}>
                                 {synonymsList}
                             </div>
                         </div>

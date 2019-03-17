@@ -40,7 +40,6 @@ class FieldList extends React.Component{
 
 
     render(){
-        console.log(this.state.fields);
         const fieldList = this.state.fields
             .map(f => <Field key={f.id} field={f} deleteField={this.deleteField}/>);
         return (
